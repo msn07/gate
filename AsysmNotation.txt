@@ -1,0 +1,116 @@
+When there is a problem, there will many solution(alogrithms) A1, A2, A3 -> before implementing any alogrithm we should analysis which one should take less memory and less memory.
+
+	Here:
+	
+		How to design various alogrithm and how to analyse them
+		
+	Terminology;
+	
+	Asymptotic Notation:
+	
+		Big Oh
+		=======
+		
+			If you found out that alogrithm, as the input size is increasing if the time is increasing f(n) - then what is the worst case or upper bound for this function. Cg(n)
+			
+			f(n) <= Cg(n)
+				n >= n0
+				C > 0, n0 >=1
+				
+			f(n) = O(g(n))
+			
+	Upper Bound: means you have proven that the algorithm will use no more than some limit on a resource
+	
+	Lower Bound: means you have proven that the algorithm will use no less than some limit on a resource
+	
+	"Resource" in this context could be time, memory, bandwidth or something else 
+	
+	Let us say:
+	
+	f(n) = 3n + 2
+	g(n) = n
+	
+	Can we say f(n) = O(g(n))
+	
+		if we have to say that, we have two constants find C and n0
+	
+	this has to follow f(n) <= Cg(n)
+	
+	for some C>0 and for some n>=1
+	
+	Now: 3n+2 <= Cn
+	
+	n = 4
+	
+		3n + 2 <= 4n for every n>=2
+		
+		if n is satisfying this then n^2, n^3 will bound
+		
+
+		Big Omega
+		=========
+	
+		If you found out that alogrithm, as the input size is increasing if the time is increasing f(n) - then what is the lower bound for this function. Cg(n)
+		
+		Let us say:
+	
+		f(n) = 3n + 2
+		g(n) = n
+	
+		Can we say f(n) = Omega(g(n))
+	
+			if we have to say that, we have two constants find C and n0
+	
+		this has to follow f(n) => Cg(n)
+	
+		for some C>0 and for some n>=1
+		
+		for n = 1, log(n), log log(n)
+		
+			f(n) => Cg(n)
+		
+		
+		Big Theta
+		==========
+		
+		if i having a function f which is growing with respect to n, then we should find both upper and lower bound just by varing the constant C
+		
+		C1g(n) <= f(n) <= C2g(n) C1, C2 > 0 and n >= n0 and n0 >= 1
+		
+		We say that a function f(n) is theta(g(n)), if f(n) is bounded by g(n) both in upper and lower 
+		
+			proof which we can collect from big oh and big Omega
+			
+		This big theta is asymtotically equal.
+		
+			for example: 3n^2 + n + 1 = theta(n^2)
+							3n^3 + n^2 = theta(n^3)
+							
+	
+	
+		Big Oh - will always say upper bound  (worst)
+		Big Omega - will always say lower bounded (best)
+		Big theta - will always say the average case (average)
+		
+		Practical:
+		==========
+		
+		Suppose we have an array
+		
+			[5, 7, 1, 2, 4, 10, 20, 11]
+		
+		I am going to search(linear search) of an element, then in best case
+		
+		if the element we want to search is 5, we can find the element in one search, so we can represent that as 
+		
+			Omega(1)
+			
+		so in the worst case, consider the size of the array is n then
+			
+			Oh(n)
+			
+		then what the average: n/2
+		
+		 i.e Theta(n/2) there is nothing but Theta(n)
+		
+		
