@@ -1,0 +1,111 @@
+Time Complexity for Recursive program
+======================================
+
+	If I have a function
+	
+		A(n) {
+			if(n>1) {           ========>>>> some constant
+				return A(n/2) + A(n/2) 
+			}
+		}
+		
+		if the time taken for A(n) is  T(n), then the time taken for the above function is 
+		
+			T(n) = C + 2T(n/2)
+		
+		
+		Examples:
+		
+		Assume that the function is like this
+		
+			A(n) {
+				if(n>1) 
+					return A(n-1)
+			}
+			
+			T(n) = 1 + T(n-1)  --- 1
+			
+			How to solve this is 
+			
+			1. BackSubstitution (Slow method)
+			
+			T(n-1) = 1 + T(n-2) --- 2
+			T(n-2) = 1 + T(n-3) --- 3
+			
+			Now substitute T(n-1) in eq: 1
+			
+			T(n) = 1 + 1 + T(n-2)
+				 = 2 + T(n-2)
+				 = 2 + 1 + T(n-3)
+				 = 3 + T(n-3)
+				   .
+				   .
+				   .
+				   .
+	Finally you will get 
+				 = K + T(n - K) --- K
+				 
+		Now when we will stop this, lets see the algorithm
+		
+			T(n) = 1 + T(n-1) when n > 1
+				 = 1 		  when n = 0 (for comparision)
+				 
+		To eliminate T(n-K) from the equation
+		
+				 n - K has to 1 (which is last comparision)
+				 
+				 n - K = 1
+				 
+				 K = n - 1
+				 
+				 
+		So the equation K will become
+		
+				 = n-1 + T(n-n-1)
+				 = n-1 + T(1)
+				 = n-1 + 1
+				 = n
+				 
+		Therefore time complexity is 
+		
+				O(n)
+				
+	2. Consider we having the recursive equation is given
+	
+		T(n) = n + T(n-1) --- 1 for n > 1
+			 = 1 				for n = 1
+		
+		T(n-1) = (n-1) + T(n-2)
+		T(n-2) = (n-2) + T(n-3)
+		
+		Now T(n) is 
+		
+		T(n) = n + (n-1) + T(n-2)
+			 = n + (n-1) + (n-2) + T(n-3)
+			 ....
+			 just following the sequence
+			 
+			 = n + (n-1) + (n-2) + ... + (n- K) + T(n- (K + 1)) --- K
+			 how we can eliminate T (n- (K + 1))
+			 if n - (K + 1) is 1
+			 so 
+			 n - (K+1) = 1
+			 i.e. 
+			 
+			 n - K - 1 = 1
+			 K = n - 2
+			 
+			 therefore i substitute K is n-2 in eq K
+			 
+			 n + (n-1) + (n-2) + ... + (n- n-2) + T(n- (n-2 + 1))
+			 
+			 n + (n-1) + (n-2) + 2 + 1
+			 
+			 n (n+1) / 2
+			 
+			 which is O(n^2)
+		
+		
+		13: 44
+				 
+		
