@@ -106,6 +106,75 @@ Time Complexity for Recursive program
 			 which is O(n^2)
 		
 		
-		13: 44
-				 
 		
+				 
+	Recursive Tree Method:
+	======================
+
+	1.	T(n) = 2T(n/2) + C; n > 1 
+		     = C 	  ; n =1 
+
+		This means if you are doing C amount of work - I could produce two problem with smaller set of inputs. And each input size is 			reduced to n/2
+
+
+		T(n)		->      	C
+ 				 	       _|_
+				C			C 		2C
+			       _|_		       _|_
+			C		C	C	 	 C	4C
+ 		       _|_	       _|_     _|_		_|_
+			.						8C
+			.
+			.
+		       T(1)	T(1)	T(1)	T(1)......		nC
+
+		T(1) = T(n/n)						
+
+			So the total work is 
+
+			= C + 2C + 4C + 8C + .... nC
+			= C( 1+ 2 + 4+ ... n)
+
+		Assume n = 2^K
+
+			= C( 1+ 2 + 4+ ... 2^K)
+			= C( 1 (2 ^ K + 1 - 1)/ ( 2-1 )
+
+			= C( 2 ^ K + 1 -1 )
+			= C( 2 ^ n - 1)
+			= O(n)
+
+	2. 	T(n) = 2T(n/2) + n; n > 1
+		     = 1 	  ; n = 1
+
+	T(n)		->      		n			n
+ 				 	       _|_
+				n/2			n/2 		n
+			       _|_		       _|_
+			n/4		n/4	n/4	 	 n/4	n
+ 		       _|_	       _|_     _|_		_|_
+			.						n
+			.
+			.
+		       T(1)	T(1)	T(1)	T(1)......		n
+
+		So at every level, the amount of work done is n, which is we need to count how many levels
+		
+			n/2^0 + n/2^1 + n/2^2 + .... + n/2^k
+
+		Which mean we have K + 1 levels
+
+			Assume that n is power 2
+		
+			n = 2 ^ K 
+			Apply log on both side
+
+			log n = K
+
+			which is (log n + 1) levels 
+
+		So the total number of work done is 
+			
+			n (log n + 1)
+
+		Which is O(nlogn)
