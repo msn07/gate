@@ -177,4 +177,4 @@ Time Complexity for Recursive program
 			
 			n (log n + 1)
 
-		Which is O(nlogn)
+Which is O(nlogn)
