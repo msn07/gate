@@ -1,0 +1,48 @@
+Space Complexity:
+=================
+
+	How much memory space is required in order to finish the algorithm/program. This has to analyzed in terms of given input size. 
+
+	If the input size is 
+	
+		n -- with reference to this what is amount of space required to complete the algo.
+
+		If you need n extra cells -- O(n)
+		constant space		  -- O(1)
+					  -- O(n ^ 2)
+
+	Iterative Program:
+	==================
+
+	1.	Algo(A, 1, n) {
+			int i, j=10;			-- constant space for i & j 
+			for(i=1 to j)
+				A[i] = 0; 
+		}
+
+		In this algo irrespective of the input size, you need a constant space. So the space complexity required for this algo is
+
+		O(1)
+
+	2. 	Algo(A, 1, n) {
+			int i;			-- constanst space
+			create B[n];		-- n extra cells
+			for(i= 1 to n) 
+				B[i] = A[i];
+		}	
+
+		So the space complexity for this algo is (1 + n) which is 
+
+		O(n)
+
+	3. 	Algo(A, 1, n) {
+			create B[n, n]		-- n ^ 2
+			int i, j;		-- 2
+			for(i=1 to n)		
+			   for(j=1 to n) 
+				B[i, j] = A[i];
+		}
+
+		So the space complexity for this algo is (2 + n ^ 2) which is 
+
+		O(n ^ 2)
