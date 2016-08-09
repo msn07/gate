@@ -46,3 +46,94 @@ Space Complexity:
 		So the space complexity for this algo is (2 + n ^ 2) which is 
 
 		O(n ^ 2)
+
+	Recursive Program:
+	==================
+
+	1. 	A(n) {
+			if(n>=1)
+			  A(n-1);
+			  pf(n);
+		}
+
+		Whenever the size of program is small, use tree method.
+
+	Tree Method:
+	============
+
+			A(3)
+			 |
+		     ----------
+		     |	      |
+		    A(2)     P(3)
+		     |
+		 ----------
+		 |	  |
+	       A(1)     P(2)
+		|
+	    ----------
+	    |	     |
+	  A(0)     P(1)
+
+	So we need 4 recursive call which is (n + 1)
+	
+	How this program works. What is the order in which the functions are called and what is the output printed. 
+	In order to analyze this, we need a STACK.
+
+	All the recursive call of this function will pushed on to the stack.
+
+	Intially you start from A(3) you traverse the tree, top-to-down and left-to-right on the way whatever you get you are going to push it on it.
+
+	Whenever I visit a node and that node is a function call I going to push it on stack and if the node is some other thing I am going to execute the instruction.
+
+	First I start from A(3) --> A(2) -- > A(1) --> A(0). Now I am going back, so this is last time I going to visit A(0) and it is a function call so pop it off. Nxt thing you come across is printf. Now pop off A(1) print 2. Now pop off A(2) print 3. Now pop off A(3)
+
+		| A(0) |
+		| A(1) |
+		| A(2) |
+		| A(3) |
+		|______|
+
+	How to find the space complexity. We need to analyze the space complexity by counting the number of variable. In this case there is no extra variables also. We have to analyze the space complexity depending on the depth/height of the stack.
+
+	How many stack order is required.
+
+	Evry stack record is going to occupy a constact space. 
+	Let us say the space it is going to occupy is K.
+
+	If the input is n. The number of required calls are n+1 and required amount of space of K, which is nothing but	
+
+	(n+1)K
+	O(Kn)
+	O(n)
+
+	What about the time required for this algorithm.
+
+	Now u need to write the recursive equation.
+
+
+	T(n) = T(n-1) + 1    -- 1
+	T(n-1) = T(n-2) + 1  -- 2
+	T(n-2) = T(n-3) + 1  -- 3
+
+	T(n) = T(n-3) + 3
+	.
+	.
+	.
+	     = T(n-k) + k
+
+	When it is going to stop. Whenever n goes to zero
+
+	n = 0; T(n) =0
+
+	Now sub k = n
+
+	     = T(n-n) + n	
+	     = T(0) + n
+             = 1 + n
+	     = O(n)
+
+	
+		
+
+	
